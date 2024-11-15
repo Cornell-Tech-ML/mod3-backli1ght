@@ -53,6 +53,27 @@ def index_to_position(index: Index, strides: Strides) -> int:
         pos = pos + index[i] * strides[i]
     return pos
 
+def count(position, shape, out_index) -> None:
+    """Convert a `position` to an index in the `shape`.
+    Should ensure that enumerating position 0 ... size of a
+    tensor produces every index exactly once. It
+    may not be the inverse of `index_to_position`.
+
+    Args:
+        position (int): current position.
+        shape (tuple): tensor shape.
+        out_index (array): the index corresponding to position.
+
+    Returns:
+      None : Fills in `out_index`.
+
+    """
+    # print('position == 0',position == 0)
+    cur_pos = position + 0
+    for i in range(len(shape) - 1, -1, -1):
+        sh = shape[i]
+        out_index[i] = int(cur_pos % sh)
+        cur_pos = cur_pos // sh
 
 def to_index(ordinal: int, shape: Shape, out_index: OutIndex) -> None:
     """Convert an `ordinal` to an index in the `shape`.
