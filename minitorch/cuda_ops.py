@@ -30,11 +30,13 @@ FakeCUDAKernel = Any
 Fn = TypeVar("Fn")
 
 
-def device_jit(fn: Fn, **kwargs) -> Fn:
+def device_jit(fn: Fn, **kwargs: Any) -> Fn:
+    """JIT compile a function for CUDA device execution."""
     return _jit(device=True, **kwargs)(fn)  # type: ignore
 
 
-def jit(fn, **kwargs) -> FakeCUDAKernel:
+def jit(fn: Fn, **kwargs: Any) -> FakeCUDAKernel:
+    """JIT compile a function for CUDA execution."""
     return _jit(**kwargs)(fn)  # type: ignore
 
 
@@ -68,6 +70,7 @@ class CudaOps(TensorOps):
 
     @staticmethod
     def zip(fn: Callable[[float, float], float]) -> Callable[[Tensor, Tensor], Tensor]:
+        """Apply a binary function element-wise to two tensors."""
         cufn: Callable[[float, float], float] = device_jit(fn)
         f = tensor_zip(cufn)
 
@@ -87,6 +90,7 @@ class CudaOps(TensorOps):
     def reduce(
         fn: Callable[[float, float], float], start: float = 0.0
     ) -> Callable[[Tensor, int], Tensor]:
+        """Apply a reduction function element-wise along a specified dimension."""
         cufn: Callable[[float, float], float] = device_jit(fn)
         f = tensor_reduce(cufn)
 
@@ -107,6 +111,7 @@ class CudaOps(TensorOps):
 
     @staticmethod
     def matrix_multiply(a: Tensor, b: Tensor) -> Tensor:
+        """Perform matrix multiplication on two tensors."""
         # Make these always be a 3 dimensional multiply
         both_2d = 0
         if len(a.shape) == 2:
@@ -183,11 +188,13 @@ def tensor_map(
 
     return cuda.jit()(_map)  # type: ignore
 
-def map(fn):
+
+def map(fn: Callable[[float], float]) -> Callable[[Tensor, Optional[Tensor]], Tensor]:
+    """Apply a unary function element-wise to a tensor using CUDA."""
     # CUDA compile your kernel
     f = tensor_map(cuda.jit(device=True)(fn))
 
-    def ret(a, out=None):
+    def ret(a: Tensor, out: Optional[Tensor] = None) -> Tensor:
         if out is None:
             out = a.zeros(a.shape)
 
@@ -198,6 +205,7 @@ def map(fn):
         return out
 
     return ret
+
 
 def tensor_zip(
     fn: Callable[[float, float], float],
@@ -296,6 +304,7 @@ jit_sum_practice = cuda.jit()(_sum_practice)
 
 
 def sum_practice(a: Tensor) -> TensorData:
+    """Perform a practice sum operation on a tensor using CUDA."""
     (size,) = a.shape
     threadsperblock = THREADS_PER_BLOCK
     blockspergrid = (size // THREADS_PER_BLOCK) + 1
@@ -421,6 +430,7 @@ jit_mm_practice = cuda.jit()(_mm_practice)
 
 
 def mm_practice(a: Tensor, b: Tensor) -> TensorData:
+    """Perform a practice matrix multiplication on two tensors using CUDA."""
     (size, _) = a.shape
     threadsperblock = (THREADS_PER_BLOCK, THREADS_PER_BLOCK)
     blockspergrid = 1
