@@ -29,9 +29,11 @@ class Network(minitorch.Module):
         self.layer3 = Linear(hidden, 1, backend)
 
     def forward(self, x):
-        # TODO: Implement for Task 3.5.
-        raise NotImplementedError("Need to implement for Task 3.5")
-
+        # ASSIGN3.5
+        h = self.layer1.forward(x).relu()
+        h = self.layer2.forward(h).relu()
+        return self.layer3.forward(h).sigmoid()
+        # END ASSIGN3.5
 
 class Linear(minitorch.Module):
     def __init__(self, in_size, out_size, backend):
@@ -43,8 +45,21 @@ class Linear(minitorch.Module):
         self.out_size = out_size
 
     def forward(self, x):
-        # TODO: Implement for Task 3.5.
-        raise NotImplementedError("Need to implement for Task 3.5")
+        batch, in_size = x.shape
+
+        # Reshape weights and inputs for proper broadcasting
+        w = self.weights.value.view(1, in_size, self.out_size)  # Shape: (1, in_size, out_size)
+        x_viewed = x.view(batch, in_size, 1)  # Shape: (batch, in_size, 1)
+
+        # Perform element-wise multiplication and sum over input dimension
+        multiplied = w * x_viewed  # Shape: (batch, in_size, out_size)
+        summed = multiplied.sum(1).view(batch, self.out_size)  # Shape: (batch, out_size)
+
+        # Reshape bias to match output shape for broadcasting
+        bias_viewed = self.bias.value.view(1, self.out_size)  # Shape: (1, out_size)
+
+        # Add bias to the result
+        return summed + bias_viewed  # Broadcasting over batch dimension
 
 
 class FastTrain:
