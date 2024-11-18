@@ -1,6 +1,7 @@
 import random
 
 import numba
+from numba import cuda
 
 import minitorch
 
