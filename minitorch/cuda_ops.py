@@ -29,6 +29,14 @@ FakeCUDAKernel = Any
 
 Fn = TypeVar("Fn")
 
+@cuda.jit(device=True)
+def cuda_count(index: int, shape: numba.types.UniTuple(int, MAX_DIMS), out_index: numba.types.Array(numba.int32, 1, "C")) -> None:
+    """Calculate the multi-dimensional index from a flat index."""
+    # Implement the logic of the count function here
+    # This is a placeholder implementation
+    for i in range(len(shape)):
+        out_index[i] = index % shape[i]
+        index //= shape[i]
 
 def device_jit(fn: Fn, **kwargs: Any) -> Fn:
     """JIT compile a function for CUDA device execution."""
@@ -249,7 +257,7 @@ def tensor_zip(
             out_index = cuda.local.array(MAX_DIMS, numba.int16)
             a_index = cuda.local.array(MAX_DIMS, numba.int16)
             b_index = cuda.local.array(MAX_DIMS, numba.int16)
-            count(i, out_shape, out_index)
+            cuda_count(i, out_shape, out_index)
             o = index_to_position(out_index, out_strides)
             broadcast_index(out_index, out_shape, a_shape, a_index)
             j = index_to_position(a_index, a_strides)
