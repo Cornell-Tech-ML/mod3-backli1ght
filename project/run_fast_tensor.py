@@ -138,18 +138,6 @@ if __name__ == "__main__":
     HIDDEN = int(args.HIDDEN)
     RATE = args.RATE
 
-    # FastTrain(
-    #     HIDDEN, backend=FastTensorBackend if args.BACKEND != "gpu" else GPUBackend
-    # ).train(data, RATE)
-    # Change which backend to use
-
-if args.BACKEND == "cpu":
-    BACKEND = minitorch.make_tensor_backend(minitorch.FastOps)
-elif args.BACKEND == "old":
-    # Module-2 backend
-    # You can use this to debug, but you will need to add a
-    # Matrix multiplication @ operator
-
-    BACKEND = minitorch.TensorFunctions
-elif args.BACKEND == "gpu":
-    BACKEND = minitorch.make_tensor_backend(minitorch.CudaOps)
+    FastTrain(
+        HIDDEN, backend=FastTensorBackend if args.BACKEND != "gpu" else GPUBackend
+    ).train(data, RATE)
