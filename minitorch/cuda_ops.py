@@ -502,48 +502,107 @@ def _tensor_matrix_multiply(
     # #    c) Compute the dot produce for position c[i, j]
     # # TODO: Implement for Task 3.4.
     # raise NotImplementedError("Need to implement for Task 3.4")
+    # a_batch_stride = a_strides[0] if a_shape[0] > 1 else 0
+    # b_batch_stride = b_strides[0] if b_shape[0] > 1 else 0
+    # BLOCK_DIM = 32
+    # shared_a = numba.cuda.shared.array((BLOCK_DIM, BLOCK_DIM), numba.float64)
+    # shared_b = numba.cuda.shared.array((BLOCK_DIM, BLOCK_DIM), numba.float64)
+
+    # y = numba.cuda.threadIdx.y
+    # x = numba.cuda.threadIdx.x
+    # block_x = numba.cuda.blockIdx.x * BLOCK_DIM
+    # block_y = numba.cuda.blockIdx.y * BLOCK_DIM
+    # z = numba.cuda.blockIdx.z
+
+    # temp = 0
+    # for block_index in range((a_shape[-1] + (BLOCK_DIM - 1)) // BLOCK_DIM):
+    #     block_mid = block_index * BLOCK_DIM
+    #     if (block_mid + x) < a_shape[-1] and (block_y + y) < a_shape[-2]:
+    #         shared_a[y, x] = a_storage[
+    #             z * a_batch_stride
+    #             + (block_mid + x) * a_strides[-1]
+    #             + (block_y + y) * a_strides[-2]
+    #         ]
+    #     else:
+    #         shared_a[y, x] = 0
+    #     if (block_x + x) < b_shape[-1] and (block_mid + y) < b_shape[-2]:
+    #         shared_b[y, x] = b_storage[
+    #             z * b_batch_stride
+    #             + (block_x + x) * b_strides[-1]
+    #             + (block_mid + y) * b_strides[-2]
+    #         ]
+    #     else:
+    #         shared_b[y, x] = 0
+    #     numba.cuda.syncthreads()
+
+    #     for val in range(BLOCK_DIM):
+    #         temp += shared_a[y, val] * shared_b[val, x]
+
+    # if (block_y + y) < out_shape[-2] and (block_x + x) < out_shape[-1]:
+    #     out[
+    #         z * out_strides[0]
+    #         + (block_y + y) * out_strides[-2]
+    #         + (block_x + x) * out_strides[-1]
+    #     ] = temp
     a_batch_stride = a_strides[0] if a_shape[0] > 1 else 0
     b_batch_stride = b_strides[0] if b_shape[0] > 1 else 0
+    
     BLOCK_DIM = 32
-    shared_a = numba.cuda.shared.array((BLOCK_DIM, BLOCK_DIM), numba.float64)
-    shared_b = numba.cuda.shared.array((BLOCK_DIM, BLOCK_DIM), numba.float64)
+    shared_a = cuda.shared.array((BLOCK_DIM, BLOCK_DIM), numba.float64)
+    shared_b = cuda.shared.array((BLOCK_DIM, BLOCK_DIM), numba.float64)
 
-    y = numba.cuda.threadIdx.y
-    x = numba.cuda.threadIdx.x
-    block_x = numba.cuda.blockIdx.x * BLOCK_DIM
-    block_y = numba.cuda.blockIdx.y * BLOCK_DIM
-    z = numba.cuda.blockIdx.z
+    # Thread and block indices
+    tx = cuda.threadIdx.x
+    ty = cuda.threadIdx.y
+    bx = cuda.blockIdx.x * BLOCK_DIM
+    by = cuda.blockIdx.y * BLOCK_DIM
+    batch = cuda.blockIdx.z
 
-    temp = 0
-    for block_index in range((a_shape[-1] + (BLOCK_DIM - 1)) // BLOCK_DIM):
-        block_mid = block_index * BLOCK_DIM
-        if (block_mid + x) < a_shape[-1] and (block_y + y) < a_shape[-2]:
-            shared_a[y, x] = a_storage[
-                z * a_batch_stride
-                + (block_mid + x) * a_strides[-1]
-                + (block_y + y) * a_strides[-2]
+    # Initialize accumulator
+    acc = 0.0
+
+    # Loop over blocks needed to compute one output element
+    for block in range((a_shape[-1] + BLOCK_DIM - 1) // BLOCK_DIM):
+        # Block offset in the shared dimension
+        k_start = block * BLOCK_DIM
+
+        # Load data into shared memory
+        if (by + ty) < a_shape[-2] and (k_start + tx) < a_shape[-1]:
+            shared_a[ty, tx] = a_storage[
+                batch * a_batch_stride + 
+                (by + ty) * a_strides[-2] + 
+                (k_start + tx) * a_strides[-1]
             ]
         else:
-            shared_a[y, x] = 0
-        if (block_x + x) < b_shape[-1] and (block_mid + y) < b_shape[-2]:
-            shared_b[y, x] = b_storage[
-                z * b_batch_stride
-                + (block_x + x) * b_strides[-1]
-                + (block_mid + y) * b_strides[-2]
+            shared_a[ty, tx] = 0.0
+
+        if (k_start + ty) < b_shape[-2] and (bx + tx) < b_shape[-1]:
+            shared_b[ty, tx] = b_storage[
+                batch * b_batch_stride + 
+                (k_start + ty) * b_strides[-2] + 
+                (bx + tx) * b_strides[-1]
             ]
         else:
-            shared_b[y, x] = 0
-        numba.cuda.syncthreads()
+            shared_b[ty, tx] = 0.0
 
-        for val in range(BLOCK_DIM):
-            temp += shared_a[y, val] * shared_b[val, x]
+        # Synchronize threads
+        cuda.syncthreads()
 
-    if (block_y + y) < out_shape[-2] and (block_x + x) < out_shape[-1]:
-        out[
-            z * out_strides[0]
-            + (block_y + y) * out_strides[-2]
-            + (block_x + x) * out_strides[-1]
-        ] = temp
+        # Compute partial dot product
+        if (by + ty) < out_shape[-2] and (bx + tx) < out_shape[-1]:
+            for k in range(min(BLOCK_DIM, a_shape[-1] - k_start)):
+                acc += shared_a[ty, k] * shared_b[k, tx]
 
+        # Synchronize before loading next block
+        cuda.syncthreads()
+
+    # Write result
+    if (by + ty) < out_shape[-2] and (bx + tx) < out_shape[-1]:
+        out_idx = (
+            batch * out_strides[0] + 
+            (by + ty) * out_strides[-2] + 
+            (bx + tx) * out_strides[-1]
+        )
+        out[out_idx] = acc
 
 tensor_matrix_multiply = jit(_tensor_matrix_multiply)
