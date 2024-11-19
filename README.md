@@ -471,6 +471,106 @@ Epoch  490  loss  1.096164435499177 correct 49
 Epoch 490 took 0.24 seconds
 
 GPU:
+Epoch  0  loss  6.770630174738972 correct 32
+Epoch 0 took 6.65169 seconds
+Epoch  10  loss  5.067554919637436 correct 40
+Epoch 10 took 2.36969 seconds
+Epoch  20  loss  4.24556332135686 correct 48
+Epoch 20 took 2.34404 seconds
+Epoch  30  loss  3.385748771893645 correct 47
+Epoch 30 took 2.31407 seconds
+Epoch  40  loss  2.278122334050485 correct 44
+Epoch 40 took 2.30155 seconds
+Epoch  50  loss  3.2864672578574146 correct 50
+Epoch 50 took 2.33172 seconds
+Epoch  60  loss  1.2543162708057336 correct 49
+Epoch 60 took 2.30422 seconds
+Epoch  70  loss  1.869115383534887 correct 50
+Epoch 70 took 2.30347 seconds
+Epoch  80  loss  1.5428898296015146 correct 50
+Epoch 80 took 2.31314 seconds
+Epoch  90  loss  1.1968715506802003 correct 50
+Epoch 90 took 2.28156 seconds
+Epoch  100  loss  1.6903231743549831 correct 50
+Epoch 100 took 2.46448 seconds
+Epoch  110  loss  1.0801929905031595 correct 48
+Epoch 110 took 2.65603 seconds
+Epoch  120  loss  1.232271635570909 correct 50
+Epoch 120 took 2.81237 seconds
+Epoch  130  loss  1.1487482226488537 correct 50
+Epoch 130 took 3.06611 seconds
+Epoch  140  loss  1.1292593443007761 correct 50
+Epoch 140 took 3.17564 seconds
+Epoch  150  loss  0.8257054857643674 correct 50
+Epoch 150 took 2.87303 seconds
+Epoch  160  loss  1.0286615520485742 correct 50
+Epoch 160 took 2.68043 seconds
+Epoch  170  loss  0.28061886476949716 correct 50
+Epoch 170 took 2.37070 seconds
+Epoch  180  loss  0.5051337497090721 correct 50
+Epoch 180 took 2.41360 seconds
+Epoch  190  loss  0.7230903944968274 correct 50
+Epoch 190 took 2.31865 seconds
+Epoch  200  loss  0.6354402991286946 correct 50
+Epoch 200 took 2.38051 seconds
+Epoch  210  loss  0.2896592774180326 correct 50
+Epoch 210 took 2.32529 seconds
+Epoch  220  loss  0.9587510181062124 correct 50
+Epoch 220 took 3.22039 seconds
+Epoch  230  loss  0.16537698321434915 correct 50
+Epoch 230 took 2.33590 seconds
+Epoch  240  loss  0.4809440969596753 correct 50
+Epoch 240 took 2.38570 seconds
+Epoch  250  loss  0.2896625150433798 correct 50
+Epoch 250 took 2.32709 seconds
+Epoch  260  loss  0.3166241362254327 correct 50
+Epoch 260 took 2.38589 seconds
+Epoch  270  loss  0.29275774502885266 correct 50
+Epoch 270 took 2.30176 seconds
+Epoch  280  loss  0.7497341644447193 correct 50
+Epoch 280 took 2.52404 seconds
+Epoch  290  loss  0.15830847028252515 correct 50
+Epoch 290 took 2.74528 seconds
+Epoch  300  loss  0.2824994956936084 correct 50
+Epoch 300 took 3.17064 seconds
+Epoch  310  loss  0.10630464280898268 correct 50
+Epoch 310 took 3.11646 seconds
+Epoch  320  loss  0.11370274546629654 correct 50
+Epoch 320 took 2.86520 seconds
+Epoch  330  loss  0.27095087378387656 correct 50
+Epoch 330 took 2.52024 seconds
+Epoch  340  loss  0.10365520648984214 correct 50
+Epoch 340 took 2.36140 seconds
+Epoch  350  loss  0.2984963638413627 correct 50
+Epoch 350 took 2.30946 seconds
+Epoch  360  loss  0.16290647275560982 correct 50
+Epoch 360 took 2.37831 seconds
+Epoch  370  loss  0.3434356391168465 correct 50
+Epoch 370 took 2.29501 seconds
+Epoch  380  loss  0.15364379766145242 correct 50
+Epoch 380 took 2.29683 seconds
+Epoch  390  loss  0.10313296545232503 correct 50
+Epoch 390 took 2.32465 seconds
+Epoch  400  loss  0.05137958509424438 correct 50
+Epoch 400 took 2.31468 seconds
+Epoch  410  loss  0.045674556074141115 correct 50
+Epoch 410 took 2.30404 seconds
+Epoch  420  loss  0.05443417314350074 correct 50
+Epoch 420 took 2.31871 seconds
+Epoch  430  loss  0.09986747720764708 correct 50
+Epoch 430 took 2.31320 seconds
+Epoch  440  loss  0.2345658333449886 correct 50
+Epoch 440 took 2.36524 seconds
+Epoch  450  loss  0.24204507362365693 correct 50
+Epoch 450 took 2.36632 seconds
+Epoch  460  loss  0.26872391596540596 correct 50
+Epoch 460 took 2.57568 seconds
+Epoch  470  loss  0.04056108222948625 correct 50
+Epoch 470 took 2.75122 seconds
+Epoch  480  loss  0.2877577096230858 correct 50
+Epoch 480 took 3.11213 seconds
+Epoch  490  loss  0.17747775941839147 correct 50
+Epoch 490 took 3.10760 seconds
 
 Simple:
 CPU:
@@ -575,6 +675,106 @@ Epoch 480 took 0.23847 seconds
 Epoch  490  loss  0.34358573466526615 correct 50
 Epoch 490 took 0.23924 seconds
 
+GPU:
+Epoch  0  loss  6.853001191874908 correct 38
+Epoch 0 took 5.31136 seconds
+Epoch  10  loss  1.9887228060713111 correct 48
+Epoch 10 took 2.33083 seconds
+Epoch  20  loss  1.7006975672282287 correct 50
+Epoch 20 took 2.30841 seconds
+Epoch  30  loss  2.4603184047511824 correct 45
+Epoch 30 took 2.32296 seconds
+Epoch  40  loss  2.079705767794441 correct 50
+Epoch 40 took 2.48577 seconds
+Epoch  50  loss  1.3353848233022092 correct 48
+Epoch 50 took 2.84029 seconds
+Epoch  60  loss  1.2566017492662407 correct 50
+Epoch 60 took 3.08610 seconds
+Epoch  70  loss  1.3218037092265211 correct 50
+Epoch 70 took 2.73823 seconds
+Epoch  80  loss  0.7137531668190864 correct 50
+Epoch 80 took 2.31368 seconds
+Epoch  90  loss  0.5772251491918798 correct 50
+Epoch 90 took 2.32852 seconds
+Epoch  100  loss  0.6504295653131749 correct 50
+Epoch 100 took 2.32272 seconds
+Epoch  110  loss  1.318791981715209 correct 50
+Epoch 110 took 2.34667 seconds
+Epoch  120  loss  0.37070909794313367 correct 49
+Epoch 120 took 2.31698 seconds
+Epoch  130  loss  0.4525840084313577 correct 50
+Epoch 130 took 2.30920 seconds
+Epoch  140  loss  0.06438493506973227 correct 50
+Epoch 140 took 2.40594 seconds
+Epoch  150  loss  0.772095749191406 correct 50
+Epoch 150 took 2.35942 seconds
+Epoch  160  loss  0.8511070443356713 correct 50
+Epoch 160 took 2.41464 seconds
+Epoch  170  loss  0.30101020657272193 correct 50
+Epoch 170 took 2.35814 seconds
+Epoch  180  loss  0.5238908154137236 correct 50
+Epoch 180 took 2.38333 seconds
+Epoch  190  loss  0.862457022725331 correct 50
+Epoch 190 took 2.44171 seconds
+Epoch  200  loss  0.7391841172372201 correct 50
+Epoch 200 took 2.82169 seconds
+Epoch  210  loss  0.2662602663926493 correct 50
+Epoch 210 took 3.11508 seconds
+Epoch  220  loss  0.2786522487983973 correct 50
+Epoch 220 took 3.18417 seconds
+Epoch  230  loss  0.23971899099669636 correct 50
+Epoch 230 took 2.76070 seconds
+Epoch  240  loss  0.7081786783394068 correct 50
+Epoch 240 took 2.43765 seconds
+Epoch  250  loss  1.1122611023639726 correct 50
+Epoch 250 took 2.31389 seconds
+Epoch  260  loss  0.08545794811969816 correct 50
+Epoch 260 took 2.39026 seconds
+Epoch  270  loss  0.021208346111855868 correct 50
+Epoch 270 took 2.30251 seconds
+Epoch  280  loss  0.5265591122659171 correct 50
+Epoch 280 took 2.39003 seconds
+Epoch  290  loss  0.6136266746287465 correct 50
+Epoch 290 took 2.33772 seconds
+Epoch  300  loss  0.5068249953356748 correct 50
+Epoch 300 took 2.41794 seconds
+Epoch  310  loss  1.161306569854326 correct 49
+Epoch 310 took 2.33009 seconds
+Epoch  320  loss  0.4542935032539804 correct 50
+Epoch 320 took 2.37804 seconds
+Epoch  330  loss  0.09059448716430847 correct 50
+Epoch 330 took 2.33065 seconds
+Epoch  340  loss  0.3679657391530259 correct 50
+Epoch 340 took 2.45149 seconds
+Epoch  350  loss  0.481453806273224 correct 50
+Epoch 350 took 2.33809 seconds
+Epoch  360  loss  0.07774724753470241 correct 50
+Epoch 360 took 2.83831 seconds
+Epoch  370  loss  0.6141296913428071 correct 50
+Epoch 370 took 3.10320 seconds
+Epoch  380  loss  0.0239980776799438 correct 50
+Epoch 380 took 3.11377 seconds
+Epoch  390  loss  0.0130255900616112 correct 50
+Epoch 390 took 2.84899 seconds
+Epoch  400  loss  0.06488303787150292 correct 50
+Epoch 400 took 2.46929 seconds
+Epoch  410  loss  0.764168979467011 correct 50
+Epoch 410 took 2.34153 seconds
+Epoch  420  loss  0.0006628298798179305 correct 50
+Epoch 420 took 2.32220 seconds
+Epoch  430  loss  0.036551720823180235 correct 50
+Epoch 430 took 2.30766 seconds
+Epoch  440  loss  0.0018270562896806303 correct 50
+Epoch 440 took 2.38403 seconds
+Epoch  450  loss  0.02562933500960495 correct 50
+Epoch 450 took 2.31274 seconds
+Epoch  470  loss  0.17950733881579733 correct 50
+Epoch 470 took 2.33353 seconds
+Epoch  480  loss  0.007827239307642932 correct 50
+Epoch 480 took 2.29627 seconds
+Epoch  490  loss  0.17950733880960493 correct 50
+Epoch 490 took 2.29766 seconds
+
 Xor:
 CPU: 
 Epoch  0  loss  8.066181890500848 correct 30
@@ -677,3 +877,208 @@ Epoch  480  loss  0.11112443701107569 correct 49
 Epoch 480 took 0.23611 seconds
 Epoch  490  loss  0.32332276650339625 correct 49
 Epoch 490 took 0.23756 seconds
+
+GPU:
+Epoch  0  loss  6.129392787556009 correct 26
+Epoch 0 took 6.73765 seconds
+Epoch  10  loss  3.927729456624434 correct 46
+Epoch 10 took 2.40114 seconds
+Epoch  20  loss  4.426069455109947 correct 48
+Epoch 20 took 2.37668 seconds
+Epoch  30  loss  2.9075986330280132 correct 48
+Epoch 30 took 2.39149 seconds
+Epoch  40  loss  2.3041869207810626 correct 50
+Epoch 40 took 2.40083 seconds
+Epoch  50  loss  1.810594432933401 correct 49
+Epoch 50 took 2.37199 seconds
+Epoch  60  loss  2.0461580803376416 correct 50
+Epoch 60 took 2.34588 seconds
+Epoch  70  loss  2.783700388002001 correct 50
+Epoch 70 took 2.71249 seconds
+Epoch  80  loss  1.986208430599372 correct 50
+Epoch 80 took 3.18244 seconds
+Epoch  90  loss  2.216985816451384 correct 50
+Epoch 90 took 2.41264 seconds
+Epoch  100  loss  1.285440387999263 correct 49
+Epoch 100 took 2.38603 seconds
+Epoch  110  loss  0.7412461752250237 correct 50
+Epoch 110 took 2.33300 seconds
+Epoch  120  loss  0.8109555142271647 correct 50
+Epoch 120 took 2.35556 seconds
+Epoch  130  loss  1.0170844996256194 correct 50
+Epoch 130 took 2.37050 seconds
+Epoch  140  loss  0.8266028142138244 correct 50
+Epoch 140 took 2.42431 seconds
+Epoch  150  loss  0.5492140686755688 correct 50
+Epoch 150 took 2.32488 seconds
+Epoch  160  loss  0.7897219889410387 correct 50
+Epoch 160 took 2.43135 seconds
+Epoch  170  loss  1.7008171730563362 correct 50
+Epoch 170 took 2.50289 seconds
+Epoch  180  loss  0.7646558843462581 correct 50
+Epoch 180 took 3.05462 seconds
+Epoch  190  loss  0.9507688855352239 correct 50
+Epoch 190 took 3.12438 seconds
+Epoch  200  loss  0.39395480177635817 correct 50
+Epoch 200 took 2.97914 seconds
+Epoch  210  loss  0.8867136217885023 correct 50
+Epoch 210 took 2.35861 seconds
+Epoch  220  loss  0.3500976166287607 correct 50
+Epoch 220 took 2.40757 seconds
+Epoch  230  loss  0.3366680879332819 correct 50
+Epoch 230 took 2.43313 seconds
+Epoch  240  loss  0.3260095728171302 correct 50
+Epoch 240 took 2.48966 seconds
+Epoch  250  loss  0.7831864406886488 correct 50
+Epoch 250 took 2.35213 seconds
+Epoch  260  loss  0.7224085533880459 correct 50
+Epoch 260 took 2.36324 seconds
+Epoch  270  loss  0.6679705923351918 correct 50
+Epoch 270 took 2.78199 seconds
+Epoch  280  loss  0.06809375033279524 correct 50
+Epoch 280 took 3.10504 seconds
+Epoch  290  loss  0.30810289265744145 correct 50
+Epoch 290 took 2.74324 seconds
+Epoch  300  loss  0.4661851841517308 correct 50
+Epoch 300 took 2.41678 seconds
+Epoch  310  loss  0.2147085369186416 correct 50
+Epoch 310 took 2.33069 seconds
+Epoch  320  loss  0.3852441068712895 correct 50
+Epoch 320 took 2.40086 seconds
+Epoch  330  loss  0.21926934930599082 correct 50
+Epoch 330 took 2.30859 seconds
+Epoch  340  loss  0.18361805193427555 correct 50
+Epoch 340 took 2.38334 seconds
+Epoch  350  loss  0.3028273387850157 correct 50
+Epoch 350 took 2.31177 seconds
+Epoch  360  loss  0.4158921666109767 correct 50
+Epoch 360 took 2.37003 seconds
+Epoch  370  loss  0.15151697581457368 correct 50
+Epoch 370 took 2.28651 seconds
+Epoch  380  loss  0.08959963455403502 correct 50
+Epoch 380 took 2.50588 seconds
+Epoch  390  loss  0.30984951089354096 correct 50
+Epoch 390 took 2.86111 seconds
+Epoch  400  loss  0.2268627541609708 correct 50
+Epoch 400 took 3.01479 seconds
+Epoch  410  loss  0.013867848654395543 correct 50
+Epoch 410 took 2.73731 seconds
+Epoch  420  loss  0.11248713382529045 correct 50
+Epoch 420 took 2.30203 seconds
+Epoch  430  loss  0.25393575815456015 correct 50
+Epoch 430 took 2.30816 seconds
+Epoch  440  loss  0.16026051300989955 correct 50
+Epoch 440 took 2.35334 seconds
+Epoch  450  loss  0.123953278166721 correct 50
+Epoch 450 took 2.31835 seconds
+Epoch  460  loss  0.18710501608864152 correct 50
+Epoch 460 took 2.38284 seconds
+Epoch  470  loss  0.18553830097129576 correct 50
+Epoch 470 took 2.37508 seconds
+Epoch  480  loss  0.1621980295813039 correct 50
+Epoch 480 took 2.41610 seconds
+Epoch  490  loss  0.23791038404170606 correct 50
+Epoch 490 took 2.37047 seconds
+
+Bigger model:
+CPU:
+Epoch  0  loss  28.29268214692315 correct 30
+Epoch 0 took 4.68254 seconds
+Epoch  10  loss  4.477688380981764 correct 44
+Epoch 10 took 0.72495 seconds
+Epoch  20  loss  5.458480012087502 correct 36
+Epoch 20 took 0.75148 seconds
+Epoch  30  loss  1.8889134036727067 correct 40
+Epoch 30 took 0.67645 seconds
+Epoch  40  loss  2.2647694021675377 correct 48
+Epoch 40 took 0.68300 seconds
+Epoch  50  loss  1.4933143836133271 correct 46
+Epoch 50 took 0.67955 seconds
+Epoch  60  loss  2.392322066066133 correct 46
+Epoch 60 took 0.68205 seconds
+Epoch  70  loss  1.93778091272232 correct 46
+Epoch 70 took 0.68160 seconds
+Epoch  80  loss  1.9927815588153075 correct 47
+Epoch 80 took 0.68647 seconds
+Epoch  90  loss  4.2163791999788724 correct 44
+Epoch 90 took 0.68363 seconds
+Epoch  100  loss  2.0595302476240693 correct 47
+Epoch 100 took 0.68842 seconds
+Epoch  110  loss  1.0226991171485804 correct 46
+Epoch 110 took 0.68131 seconds
+Epoch  120  loss  1.257848985765992 correct 47
+Epoch 120 took 0.69271 seconds
+Epoch  130  loss  1.7771308312782634 correct 47
+Epoch 130 took 0.68132 seconds
+Epoch  140  loss  0.28338202837756604 correct 48
+Epoch 140 took 0.69548 seconds
+Epoch  150  loss  1.187591125665289 correct 47
+Epoch 150 took 0.67166 seconds
+Epoch  160  loss  1.0987653111028286 correct 47
+Epoch 160 took 1.39161 seconds
+Epoch  170  loss  1.4608968142919143 correct 47
+Epoch 170 took 1.31187 seconds
+Epoch  180  loss  0.5496333225105184 correct 49
+Epoch 180 took 1.30305 seconds
+Epoch  190  loss  0.7535844703902362 correct 47
+Epoch 190 took 0.74887 seconds
+Epoch  200  loss  1.2305529606964505 correct 48
+Epoch 200 took 0.86749 seconds
+Epoch  210  loss  1.2675054141394717 correct 47
+Epoch 210 took 0.68376 seconds
+Epoch  220  loss  1.8013260905203894 correct 48
+Epoch 220 took 0.68729 seconds
+Epoch  230  loss  1.6574968569156878 correct 48
+Epoch 230 took 0.74852 seconds
+Epoch  240  loss  0.3697278762471821 correct 48
+Epoch 240 took 0.67028 seconds
+Epoch  250  loss  1.123120772434797 correct 48
+Epoch 250 took 0.67061 seconds
+Epoch  260  loss  0.49756200585475885 correct 49
+Epoch 260 took 0.66964 seconds
+Epoch  270  loss  1.8375055412859909 correct 48
+Epoch 270 took 0.67442 seconds
+Epoch  280  loss  2.5195230537432245 correct 46
+Epoch 280 took 0.67005 seconds
+Epoch  290  loss  1.1263377626962663 correct 47
+Epoch 290 took 0.67060 seconds
+Epoch  300  loss  1.0659945003883395 correct 49
+Epoch 300 took 0.66971 seconds
+Epoch  310  loss  0.6522055715968459 correct 48
+Epoch 310 took 0.66883 seconds
+Epoch  320  loss  1.636485325876818 correct 48
+Epoch 320 took 0.67356 seconds
+Epoch  330  loss  1.4819500621692565 correct 48
+Epoch 330 took 0.67279 seconds
+Epoch  340  loss  2.923473174861492 correct 47
+Epoch 340 took 0.68707 seconds
+Epoch  350  loss  0.27851284508134944 correct 50
+Epoch 350 took 0.67212 seconds
+Epoch  360  loss  0.46444734816772454 correct 49
+Epoch 360 took 0.67184 seconds
+Epoch  370  loss  3.3795437448728007 correct 46
+Epoch 370 took 0.67561 seconds
+Epoch  380  loss  1.2965156323351608 correct 49
+Epoch 380 took 0.67284 seconds
+Epoch  390  loss  0.4893740167409722 correct 49
+Epoch 390 took 0.67155 seconds
+Epoch  400  loss  0.8360901428132583 correct 48
+Epoch 400 took 0.67146 seconds
+Epoch  410  loss  0.2835791280512257 correct 49
+Epoch 410 took 0.67052 seconds
+Epoch  420  loss  0.40519713002567426 correct 48
+Epoch 420 took 0.67234 seconds
+Epoch  430  loss  0.4155010858876527 correct 50
+Epoch 430 took 0.67147 seconds
+Epoch  440  loss  0.04636948552338771 correct 47
+Epoch 440 took 0.67635 seconds
+Epoch  450  loss  1.4754358941652819 correct 49
+Epoch 450 took 0.66736 seconds
+Epoch  460  loss  0.23102537782945917 correct 50
+Epoch 460 took 0.66959 seconds
+Epoch  470  loss  0.33445464515670564 correct 49
+Epoch 470 took 0.68946 seconds
+Epoch  480  loss  0.8630420067473981 correct 49
+Epoch 480 took 0.67210 seconds
+Epoch  490  loss  0.6192384461504349 correct 49
+Epoch 490 took 0.66990 seconds

@@ -10,6 +10,8 @@ datasets = minitorch.datasets
 FastTensorBackend = minitorch.TensorBackend(minitorch.FastOps)
 if numba.cuda.is_available():
     GPUBackend = minitorch.TensorBackend(minitorch.CudaOps)
+else:
+    GPUBackend = None
 
 
 def default_log_fn(epoch, total_loss, correct, losses):
@@ -144,6 +146,8 @@ if __name__ == "__main__":
     HIDDEN = int(args.HIDDEN)
     RATE = args.RATE
 
-    FastTrain(
-        HIDDEN, backend=FastTensorBackend if args.BACKEND != "gpu" else GPUBackend
-    ).train(data, RATE)
+    backend = FastTensorBackend if args.BACKEND != "gpu" else GPUBackend
+    if backend is None:
+        raise RuntimeError("CUDA is not available, cannot use GPU backend.")
+
+    FastTrain(HIDDEN, backend=backend).train(data, RATE)
