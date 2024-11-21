@@ -438,7 +438,20 @@ jit_mm_practice = cuda.jit()(_mm_practice)
 
 
 def mm_practice(a: Tensor, b: Tensor) -> TensorData:
-    """Perform a practice matrix multiplication on two tensors using CUDA."""
+    """Perform a practice matrix multiplication on two square tensors using CUDA.
+    
+    This is a simplified matrix multiplication implementation that assumes both input
+    tensors are square matrices of the same size. The computation is performed on the
+    GPU using CUDA kernels with shared memory optimization.
+
+    Args:
+        a (Tensor): First input tensor of shape (size, size)
+        b (Tensor): Second input tensor of shape (size, size)
+        
+    Returns:
+        TensorData: The result of matrix multiplication with shape (size, size)
+        
+    """
     (size, _) = a.shape
     threadsperblock = (THREADS_PER_BLOCK, THREADS_PER_BLOCK)
     blockspergrid = 1
@@ -478,72 +491,6 @@ def _tensor_matrix_multiply(
     Returns:
         None : Fills in `out`
     """
-    # a_batch_stride = a_strides[0] if a_shape[0] > 1 else 0
-    # b_batch_stride = b_strides[0] if b_shape[0] > 1 else 0
-    # # Batch dimension - fixed
-    # batch = cuda.blockIdx.z
-
-    # BLOCK_DIM = 32
-    # a_shared = cuda.shared.array((BLOCK_DIM, BLOCK_DIM), numba.float64)
-    # b_shared = cuda.shared.array((BLOCK_DIM, BLOCK_DIM), numba.float64)
-
-    # # The final position c[i, j]
-    # i = cuda.blockIdx.x * cuda.blockDim.x + cuda.threadIdx.x
-    # j = cuda.blockIdx.y * cuda.blockDim.y + cuda.threadIdx.y
-
-    # # The local position in the block.
-    # pi = cuda.threadIdx.x
-    # pj = cuda.threadIdx.y
-
-    # # Code Plan:
-    # # 1) Move across shared dimension by block dim.
-    # #    a) Copy into shared memory for a matrix.
-    # #    b) Copy into shared memory for b matrix
-    # #    c) Compute the dot produce for position c[i, j]
-    # # TODO: Implement for Task 3.4.
-    # raise NotImplementedError("Need to implement for Task 3.4")
-    # a_batch_stride = a_strides[0] if a_shape[0] > 1 else 0
-    # b_batch_stride = b_strides[0] if b_shape[0] > 1 else 0
-    # BLOCK_DIM = 32
-    # shared_a = numba.cuda.shared.array((BLOCK_DIM, BLOCK_DIM), numba.float64)
-    # shared_b = numba.cuda.shared.array((BLOCK_DIM, BLOCK_DIM), numba.float64)
-
-    # y = numba.cuda.threadIdx.y
-    # x = numba.cuda.threadIdx.x
-    # block_x = numba.cuda.blockIdx.x * BLOCK_DIM
-    # block_y = numba.cuda.blockIdx.y * BLOCK_DIM
-    # z = numba.cuda.blockIdx.z
-
-    # temp = 0
-    # for block_index in range((a_shape[-1] + (BLOCK_DIM - 1)) // BLOCK_DIM):
-    #     block_mid = block_index * BLOCK_DIM
-    #     if (block_mid + x) < a_shape[-1] and (block_y + y) < a_shape[-2]:
-    #         shared_a[y, x] = a_storage[
-    #             z * a_batch_stride
-    #             + (block_mid + x) * a_strides[-1]
-    #             + (block_y + y) * a_strides[-2]
-    #         ]
-    #     else:
-    #         shared_a[y, x] = 0
-    #     if (block_x + x) < b_shape[-1] and (block_mid + y) < b_shape[-2]:
-    #         shared_b[y, x] = b_storage[
-    #             z * b_batch_stride
-    #             + (block_x + x) * b_strides[-1]
-    #             + (block_mid + y) * b_strides[-2]
-    #         ]
-    #     else:
-    #         shared_b[y, x] = 0
-    #     numba.cuda.syncthreads()
-
-    #     for val in range(BLOCK_DIM):
-    #         temp += shared_a[y, val] * shared_b[val, x]
-
-    # if (block_y + y) < out_shape[-2] and (block_x + x) < out_shape[-1]:
-    #     out[
-    #         z * out_strides[0]
-    #         + (block_y + y) * out_strides[-2]
-    #         + (block_x + x) * out_strides[-1]
-    #     ] = temp
     a_batch_stride = a_strides[0] if a_shape[0] > 1 else 0
     b_batch_stride = b_strides[0] if b_shape[0] > 1 else 0
     
